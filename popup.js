@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', function()
+{
+    document.getElementById('submitbutton').addEventListener("click", function()
+    {
+        var clrValue = document.getElementById('color').value;
 
-		var s = prompt("What color do you want the background to be?");
-		document.body.style.backgroundColor=s;
+        chrome.tabs.executeScript(null,
+        {
+            code:"document.body.style.backgroundColor='" + clrValue + "'"
+        });
+
+    });
+
+});
